@@ -1,0 +1,17 @@
+.sub__header--main {
+  height: 100px;
+}
+
+.sub__header--sub {
+  padding-top: 30px;
+}
+
+.sub__header--title a{
+  color: black;
+  font-size: 40px;
+  transition: 0.2s;
+}
+
+.sub__header--title a:hover{
+  color: #808080;
+}

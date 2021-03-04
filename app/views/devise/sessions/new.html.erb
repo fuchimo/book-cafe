@@ -1,26 +1,49 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%= render "shares/sub_header" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<%# cssはapp/assets/stylesheets/devise.cssに記載 %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<%= form_with model: @user, url: user_session_path, class: "registration__main", local: true do |f| %>
+
+<div class="container devise__form">
+  <div class="row justify-content-center form__header">
+    <div class="form__header--title">
+      <h2>ログイン</h2>
     </div>
-  <% end %>
+  </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <%= render "shares/error_messages", resource: @user %>
+
+  <div class="login-error">
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">メールアドレス</label>
+        <span class="form__attention">必須</span>
+      </div>
+        <%= f.email_field :email, class: "form-control", id: "email", autofocus: true%>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">パスワード</label>
+        <span class="form__attention">必須</span>
+      </div>
+      <%= f.password_field :password, class: "form-control", id: "password" %>
+    </div>
+  </div>
+
+
+  <div class="form__btn">
+    <%= f.submit "Log In", class: "btn btn-outline-primary"%>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

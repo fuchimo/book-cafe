@@ -1,0 +1,22 @@
+<%# cssはapp/assets/stylesheets/homes.cssに記載 %>
+<header>
+  <div class="container">
+    <div class="row header__container">
+      <div class="col-xs-12 col-lg-6 header__container--left">
+        <h1><%= link_to 'BookSpace', root_path %></h1>
+      </div>
+      <div class="col-xs-12 col-lg-6 header__container--right">
+      <% if user_signed_in? %>
+        <ul class="header__nav--contents">
+          <li class="header__nav--content"><%= link_to 'マイページ', "#" %></li>
+          <li class="header__nav--content"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <ul class="header__nav--contents">
+          <li class="header__nav--content"><%= link_to 'ログイン', new_user_session_path %></li>
+          <li class="header__nav--content"><%= link_to '新規登録', new_user_registration_path %></li>
+        </ul>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</header>

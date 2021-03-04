@@ -1,29 +1,85 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= render "shares/sub_header" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%# cssはapp/assets/stylesheets/devise.cssに記載 %>
+
+<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+
+<div class="container devise__form">
+  <div class="row justify-content-center form__header">
+    <div class="form__header--title">
+      <h2>ユーザー情報登録</h2>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= render "shares/error_messages", resource: @user %>
+
+  <div class="row form__area ">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">ニックネーム</label>
+        <span class="form__attention">必須</span>
+      </div>
+        <%= f.text_field :nickname, class: "form-control", id: "nickname", autofocus: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">メールアドレス</label>
+        <span class="form__attention">必須</span>
+      </div>
+        <%= f.email_field :email, class: "form-control", id: "email" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">パスワード</label>
+        <span class="form__attention">必須</span>
+      </div>
+      <%= f.password_field :password, class: "form-control", id: "password" %>
+    </div>
   </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">パスワード(確認)</label>
+        <span class="form__attention">必須</span>
+      </div>
+        <%= f.password_field :password_confirmation, class: "form-control", id: "password_confirmation" %>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">生年月日</label>
+        <span class="form__attention">必須</span>
+      </div>
+      <div class="form__field--btr">
+        <%= raw sprintf(
+          f.date_select(:birth_date, 
+                        id: "birth_date",
+                        class: "form-control",
+                        use_month_numbers: true,
+                        prompt: "--",
+                        start_year: 1950,
+                        end_year: (Time.now.year - 10),
+                        date_separator: '%s'),"年","月") + "日" %>
+      </div>
+    </div>
+  </div>
+
+        <div class="form__btn">
+          <%= f.submit "Next", class: "btn btn-outline-primary"%>
+        </div>
+    </div>
+  </div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>
+
