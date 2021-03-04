@@ -1,0 +1,13 @@
+<%# cssはapp/assets/stylesheets/error.cssに記載 %>
+
+<% if resource.errors.any?%>
+  <div class="form__error--container">
+    <div class="form__error--area">
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+        <li class="form__error--message"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

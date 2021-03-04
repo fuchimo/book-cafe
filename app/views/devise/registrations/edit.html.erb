@@ -1,0 +1,96 @@
+
+<%= render "shares/sub_header" %>
+
+<%# cssはapp/assets/stylesheets/devise.cssに記載 %>
+
+<%= form_with model: @user, url: registration_path(resource_name), method: :put, local: true do |f| %>
+
+<div class="container devise__form">
+  <div class="row justify-content-center form__header">
+    <div class="form__header--title">
+      <h2>ユーザー情報編集</h2>
+    </div>
+  </div>
+
+    <%= render "shares/error_messages", resource: @user %>
+
+  <div class="row form__area ">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">ニックネーム</label>
+        <%# <span class="form__attention">必須</span> %>
+      </div>
+        <%= f.text_field :nickname, class: "form-control", id: "nickname", autofocus: true %>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">メールアドレス</label>
+        <%# <span class="form__attention">必須</span> %>
+      </div>
+        <%= f.email_field :email, class: "form-control", id: "email" %>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">新パスワード</label>
+        <p class="form__attention--edit">(変更したい場合のみ入力)</p>
+      </div>
+      <%= f.password_field :password, class: "form-control", id: "password" %>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">新パスワード(確認)</label>
+        <p class="form__attention--edit">(変更したい場合のみ入力)</p>
+      </div>
+        <%= f.password_field :password_confirmation, class: "form-control", id: "password_confirmation" %>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">旧パスワード</label>
+        <span class="form__attention">必須</span>
+      </div>
+        <%= f.password_field :current_password, class: "form-control", id: "current-password" %>
+    </div>
+  </div>
+
+  <div class="row form__area">
+    <div class="form-group col-5">
+      <div class="form__label--area">
+        <label class="form__label--text">生年月日</label>
+      </div>
+      <div class="form__field--btr">
+        <%= raw sprintf(
+          f.date_select(:birth_date, 
+                        id: "birth_date",
+                        class: "form-control",
+                        use_month_numbers: true,
+                        prompt: "--",
+                        start_year: 1950,
+                        end_year: (Time.now.year - 10),
+                        date_separator: '%s'),"年","月") + "日" %>
+      </div>
+    </div>
+  </div>
+
+        <div class="form__btn">
+          <%= f.submit "Update", class: "btn btn-outline-primary"%>
+          <%= link_to 'Cancel', root_path, class: "btn btn-outline-danger" %>
+        </div>
+    </div>
+  </div>
+
+<% end %>
