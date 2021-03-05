@@ -1,0 +1,47 @@
+<%= render "/shares/header_form" %>
+
+<div class="container">
+  <div class="row main__title">
+    <div class="card col-xs-12 col-lg-8 book__main__title">
+      <h1>本の詳細・感想入力ページ</h1>
+    </div>
+  </div>
+
+  <%= form_with model: @book, local: true do |f| %>
+    
+    <div class="row book__content--area">
+      <div class="card col-xs-12 col-lg-4 book__image--wrapper">
+        <%= image_tag "sample-cafe.png", class: "card-img-top" %>
+        <div class="book__image--area">
+        <%= f.file_field :image, class: "book__image", id: "book-image" %>
+        </div>
+      </div>
+      
+      <div class="col-xs12 col-lg-4 book__details">
+        <h2>タイトル</h2>
+        <%= f.text_field :title, class:"book-content", id:"book-title" %>
+        <h2>著者</h2>
+        <%= f.text_field :author, class:"book-content", id:"book-author" %>
+        <h2>出版社</h2>
+        <%= f.text_field :publisher, class:"book-content", id:"book-publisher" %>
+        <h2>カテゴリー</h2>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, { include_blank: "---" }, {class:"book-content", id:"book-category"}) %>
+      </div>
+    </div>
+
+    <div class="row book__review--area">
+      <div class="col-xs12 col-lg-8 book__review--wrapper">
+        <h2>読後の感想</h2>
+        <%= f.text_area :content, class:"book-review", id:"review-text" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+
+
+
+
+
+    

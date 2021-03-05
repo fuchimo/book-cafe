@@ -1,0 +1,23 @@
+
+.user__show--main {
+  margin-top: 30px;
+}
+
+.show__area--name {
+  display: flex;
+  justify-content: center;
+}
+
+.show__area--name p{
+  font-size: 30px;
+}
+
+.show__area--index {
+  display: flex;
+  justify-content: center;
+}
+
+.show__area--index p{
+  font-size: 25px;
+}
+

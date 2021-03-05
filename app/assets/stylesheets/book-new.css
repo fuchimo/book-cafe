@@ -1,0 +1,64 @@
+
+.main__title {
+  height: 80px;
+  margin: 20px 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.book__main__title h1{
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.book__content--area {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.book__image--wrapper {
+  padding-bottom: 26px;
+}
+
+.book__image--area {
+  text-align: center;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.book__details {
+  padding-top: 20px;
+}
+
+.book__details h2{
+  font-weight: bold;
+}
+
+.book-content {
+  width: 300px;
+  height: 40px;
+  margin: 10px 0;
+}
+
+
+
+.book__review--area {
+  justify-content: center;
+}
+
+.book__review--wrapper {
+  margin: 20px 0;
+}
+
+.book__review--wrapper h2{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.book-review {
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  padding: 10px;
+}

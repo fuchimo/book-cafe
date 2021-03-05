@@ -8,7 +8,7 @@
       <div class="col-xs-12 col-lg-6 header__container--right">
       <% if user_signed_in? %>
         <ul class="header__nav--contents">
-          <li class="header__nav--content"><%= link_to 'マイページ', "#" %></li>
+          <li class="header__nav--content"><%= link_to 'マイページ', user_path(current_user.id) %></li>
           <li class="header__nav--content"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       <% else %>
         <ul class="header__nav--contents">
