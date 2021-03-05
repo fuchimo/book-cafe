@@ -7,7 +7,8 @@
     </div>
   </div>
 
-  <%= form_with model: @book, local: true do |f| %>
+  <%= form_with model: @book_review, url: books_path, local: true do |f| %>
+  <%= render "shares/error_messages", resource: @book_review %>
     
     <div class="row book__content--area">
       <div class="card col-xs-12 col-lg-4 book__image--wrapper">
@@ -34,6 +35,10 @@
         <h2>読後の感想</h2>
         <%= f.text_area :content, class:"book-review", id:"review-text" %>
       </div>
+    </div>
+
+    <div class="book__btn">
+          <%= f.submit "投稿", class: "btn btn-outline-primary"%>
     </div>
   <% end %>
 

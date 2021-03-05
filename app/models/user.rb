@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
   validates :nickname, :birth_date, presence: true
   
+  has_many :books
   has_one :address
-  belongs_to :book
+  
   
 end
