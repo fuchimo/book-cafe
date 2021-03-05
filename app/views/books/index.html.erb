@@ -16,14 +16,14 @@
     <% if user_signed_in? %>
       <div class="row main__btn">
         <div class="card col-xs-12 col-lg-6 book__main__btn">
-          <%= link_to '感想を投稿する', new_book_path, class: "btn btn-info btn-set" %>
+          <%= link_to 'レビューを投稿する', new_book_path, class: "btn btn-info btn-set" %>
         </div>
       </div>
     <% end %>
 
     <div class="row main__title">
       <div class="card col-xs-12 col-lg-8 book__main__title">
-        <h1>読書家たちの感想一覧</h1>
+        <h1>読書家たちのレビュー 一覧</h1>
         <hr class="border">
       </div>
     </div>
@@ -48,14 +48,14 @@
     <div class="row main__area">
       <% if @books.blank? %>
         <div class="card col-xs-12 col-lg-8">
-              <p class="card__none">現在は投稿がありません</p>
+              <p class="card__none">現在はレビューがありません</p>
         </div>
       <% end %>
 
       <% @books.each do |book| %>
         <div class="card col-xs-12 col-lg-3">
           <%= image_tag book.image, class: "card-img-top" %>
-          <p class="card__user">投稿者：<%= book.user.nickname %></p>
+          <p class="card__user">レビュアー：<%= book.user.nickname %></p>
           <div class="card-body">
             <p class="card__title">タイトル：</p>
             <p class="card-text"><%= book.title %></p>
