@@ -15,7 +15,7 @@
 
     <div class="row main__btn">
       <div class="card col-xs-12 col-lg-6 book__main__btn">
-        <%= link_to '感想を投稿する', "", class: "btn btn-info btn-set" %>
+        <%= link_to '感想を投稿する', new_book_path, class: "btn btn-info btn-set" %>
       </div>
     </div>
 
@@ -47,6 +47,7 @@
 
       <div class="card col-xs-12 col-lg-3">
         <%= image_tag "sample-cafe.png", class: "card-img-top" %>
+        <p class="card__user">投稿者：</p>
         <div class="card-body">
           <p class="card__title">タイトル：</p>
           <p class="card-text">ハリーポッターとアズカバンの囚人</p>

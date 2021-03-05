@@ -52,6 +52,12 @@
   height: 250px;
 }
 
+.card__user {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
 .card__title {
   font-size: 14px;
   font-weight: bold;

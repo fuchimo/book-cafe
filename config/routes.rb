@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   end
   
   root to: "books#index"
+  resources :users, only: [:show]
+  resources :books, only: [:index, :create, :new]
   
 end
