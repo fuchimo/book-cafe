@@ -1,0 +1,139 @@
+
+.main__container--image {
+  height: 400px;
+  margin: 20px 0;
+  background-image: url("sample-cafe2.png");
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+  filter: opacity(70%);
+}
+
+.main__container--text {
+  position: absolute;
+  top: 6vh;
+  left: 4vw;
+  color: whitesmoke;
+}
+
+.main__container--text h2{
+  font-size: 2.5vw;
+  margin-bottom: 1vh;
+  text-shadow: 1px 2px 3px black;
+}
+
+.main__container--text p{
+  font-size: 2vw;
+  text-shadow: 1px 2px 3px black;
+}
+
+.main__btn {
+  justify-content: center;
+}
+
+.btn-set {
+  height: 50px;
+  line-height: 35px;
+}
+
+
+.main__area {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  padding-top: 20px 10px 10px 0;
+  margin: 20px 0;
+  border: none;
+}
+
+.card-img-top {
+  height: 250px;
+}
+
+.card__title {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  text-align: left;
+  margin-left: -20px;
+}
+
+.card-text {
+  font-size: 14px;
+  padding-bottom: 10px;
+  text-align: left;
+  margin-left: -15px;
+  margin-right: -20px;
+}
+
+.card_btn {
+  margin-left: -20px;
+  width: 100%;
+}
+
+.search__text {
+  font-size: 18px;
+  margin: 0 12px;
+  line-height: 40px;
+}
+
+.category--list {
+  font-size: 14px;
+  list-style: none;
+  padding: 10px 0 10px 8px;
+}
+
+
+
+
+
+
+
+
+
+/* .main__area {
+  text-align: center;
+}
+
+.main__area--book-buy {
+}
+
+.main__area--content-top {
+  margin: 2vh 0;
+  color: black;
+}
+
+.main__area--content-top h3{
+  font-weight: bold;
+}
+
+.main__area--content-top a:hover{
+  color: #808080;
+}
+
+.main__area--content-image {
+}
+
+.main__area--content-under {
+  margin: 3vh 0;
+  color: black;
+}
+
+.link__set {
+  color: black;
+}
+
+.main__area hr {
+  width: 200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+} */
+
+
+
+.footer_wrapper {
+  height: 50px;
+  background-color: whitesmoke;
+}

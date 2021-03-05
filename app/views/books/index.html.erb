@@ -1,0 +1,126 @@
+
+<%= render "/shares/header_form" %>
+
+<main>
+  <div class="container">
+
+    <div class="row main__image">
+      <div class="col-12 main__container--image">
+        <div class="main__container--text">
+        <h2>読書家たちのコミュニケーションスペース</h2>
+        <p>いろいろな本や人と出会おう</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row main__btn">
+      <div class="card col-xs-12 col-lg-6 book__main__btn">
+        <%= link_to '感想を投稿する', "", class: "btn btn-info btn-set" %>
+      </div>
+    </div>
+
+    <div class="row main__title">
+      <div class="card col-xs-12 col-lg-8 book__main__title">
+        <h1>読書家たちの感想一覧</h1>
+        <hr class="border">
+      </div>
+    </div>
+
+    <div class="row main__nav">
+      <p class="search__text">カテゴリーから検索する</p>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          カテゴリー
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <% Category.all.each do |category| %>
+          <p class="category--list"><%= category.name %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row main__area">
+
+      <div class="card col-xs-12 col-lg-3">
+        <%= image_tag "sample-cafe.png", class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card__title">タイトル：</p>
+          <p class="card-text">ハリーポッターとアズカバンの囚人</p>
+          <p class="card__title">著者：</p>
+          <p class="card-text">J.K ローリング</p>
+          <p class="card__title">出版社：</p>
+          <p class="card-text">小学館</p>
+          <p class="card__title">カテゴリー：</p>
+          <p class="card-text">ファンタジー</p>
+          <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+        </div>
+      </div>
+
+      <div class="card col-xs-12 col-lg-3">
+        <%= image_tag "sample-book.png", class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card__title">タイトル：</p>
+          <p class="card-text">ハリーポッターとアズカバンの囚人</p>
+          <p class="card__title">著者：</p>
+          <p class="card-text">J.K ローリング</p>
+          <p class="card__title">出版社：</p>
+          <p class="card-text">小学館</p>
+          <p class="card__title">カテゴリー：</p>
+          <p class="card-text">ファンタジー</p>
+          <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+        </div>
+      </div>
+
+      <div class="card col-xs-12 col-lg-3">
+        <%= image_tag "sample-cafe.png", class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card__title">タイトル：</p>
+          <p class="card-text">ハリーポッターとアズカバンの囚人</p>
+          <p class="card__title">著者：</p>
+          <p class="card-text">J.K ローリング</p>
+          <p class="card__title">出版社：</p>
+          <p class="card-text">小学館</p>
+          <p class="card__title">カテゴリー：</p>
+          <p class="card-text">ファンタジー</p>
+          <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+        </div>
+      </div>
+
+      <div class="card col-xs-12 col-lg-3">
+        <%= image_tag "sample-book.png", class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card__title">タイトル：</p>
+          <p class="card-text">ハリーポッターとアズカバンの囚人</p>
+          <p class="card__title">著者：</p>
+          <p class="card-text">J.K ローリング</p>
+          <p class="card__title">出版社：</p>
+          <p class="card-text">小学館</p>
+          <p class="card__title">カテゴリー：</p>
+          <p class="card-text">ファンタジー</p>
+          <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+        </div>
+      </div>
+
+      <div class="card col-xs-12 col-lg-3">
+        <%= image_tag "sample-book.png", class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card__title">タイトル：</p>
+          <p class="card-text">ハリーポッターとアズカバンの囚人</p>
+          <p class="card__title">著者：</p>
+          <p class="card-text">J.K ローリング</p>
+          <p class="card__title">出版社：</p>
+          <p class="card-text">小学館</p>
+          <p class="card__title">カテゴリー：</p>
+          <p class="card-text">ファンタジー</p>
+          <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+        </div>
+      </div>
+    </div>
+
+</main>
+
+<%= render "/shares/footer_form" %>
