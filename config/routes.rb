@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: "books#index"
   resources :users, only: [:show]
   resources :addresses, only: [:edit, :update]
-  resources :books, only: [:index, :create, :new]
+  resources :books
+  resources :reviews, only: [:edit, :update]
   
 end

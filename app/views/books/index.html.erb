@@ -65,7 +65,7 @@
             <p class="card-text"><%= book.publisher %></p>
             <p class="card__title">カテゴリー：</p>
             <p class="card-text"><%= book.category.name %></p>
-            <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+            <%= link_to '詳細', book_path(book.id), class: "btn btn-secondary card_btn" %>
           </div>
         </div>
       <% end %>

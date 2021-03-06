@@ -1,0 +1,25 @@
+<%= render "/shares/header_form" %>
+
+<div class="container">
+  <div class="row main__title">
+    <div class="card col-xs-12 col-lg-8 book__main__title">
+      <h1>本のレビュー編集</h1>
+    </div>
+  </div>
+
+  <%= form_with model: @review, local: true do |f| %>
+  <%= render "shares/error_messages", resource: @review %>
+    
+    <div class="row book__review--area">
+      <div class="col-xs12 col-lg-8 book__review--wrapper">
+        <h2>レビュー</h2>
+        <%= f.text_area :content, class:"book-review", id:"review-text" %>
+      </div>
+    </div>
+    
+    <div class="book__btn">
+          <%= f.submit "Update", class: "btn btn-outline-primary"%>
+          <%= link_to 'Cancel', user_path(current_user), class: "btn btn-outline-danger" %>
+    </div>
+  <% end %>
+</div>

@@ -38,6 +38,7 @@
 .user__show--book {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .user__show-image {
@@ -48,19 +49,15 @@
 }
 
 .user__show--book--title {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.book-btn-color {
-  padding: 5px;
-  /* margin-right: 3px; */
+.book--content {
+  font-size: 14px;
+  margin-bottom: 1px;
 }
 
-.book-btn-color {
-  font-weight: normal;
-  color: white;
-}
-
-.book-btn-color a:hover {
-  color: white;
+.delete {
+  color: red;
+  font-weight: bold;
 }

@@ -3,18 +3,19 @@
 <div class="container">
   <div class="row main__title">
     <div class="card col-xs-12 col-lg-8 book__main__title">
-      <h1>本の詳細・レビュー入力</h1>
+      <h1>本の詳細編集</h1>
     </div>
   </div>
 
-  <%= form_with model: @book_review, url: books_path, local: true do |f| %>
-  <%= render "shares/error_messages", resource: @book_review %>
+  <%= form_with model: @book, local: true do |f| %>
+  <%= render "shares/error_messages", resource: @book %>
     
     <div class="row book__content--area">
       <div class="card col-xs-12 col-lg-4 book__image--wrapper" id="preview-image">
         <div class="book__image--area">
-        <%= f.file_field :image, class: "book__image", id: "book-image" %>
+          <%= f.file_field :image, class: "book__image", id: "book-image" %>
         </div>
+          <%= image_tag @book.image, id:"image-now", class:"card-img-top" %>
       </div>
       
       <div class="col-xs12 col-lg-4 book__details">
@@ -28,24 +29,9 @@
         <%= f.collection_select(:category_id, Category.all, :id, :name, { include_blank: "---" }, {class:"book-content", id:"book-category"}) %>
       </div>
     </div>
-
-    <div class="row book__review--area">
-      <div class="col-xs12 col-lg-8 book__review--wrapper">
-        <h2>レビュー</h2>
-        <%= f.text_area :content, class:"book-review", id:"review-text" %>
-      </div>
-    </div>
-
     <div class="book__btn">
-          <%= f.submit "投稿", class: "btn btn-info"%>
+          <%= f.submit "Update", class: "btn btn-outline-primary"%>
+          <%= link_to 'Cancel', user_path(current_user), class: "btn btn-outline-danger" %>
     </div>
   <% end %>
-
 </div>
-
-
-
-
-
-
-    
