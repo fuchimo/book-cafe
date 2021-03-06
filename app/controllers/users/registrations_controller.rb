@@ -36,6 +36,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     redirect_to root_path
   end
 
+  def after_update_path_for(resource)
+    user_path(current_user)
+  end
+
   private
 
   def address_params

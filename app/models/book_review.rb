@@ -17,5 +17,5 @@ class BookReview
     book = Book.create(title: title, author: author, publisher: publisher, category_id: category_id, user_id: user_id, image: image)
     Review.create(content: content, book_id: book.id)
   end
-
+  
 end

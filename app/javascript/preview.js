@@ -16,6 +16,11 @@ if (document.URL.match(/new/) || document.URL.match(/edit/)) {
         imageContent.remove();
       }
 
+      const imageNow = document.getElementById('image-now');
+      if (imageNow) {
+        imageNow.remove();
+      }
+
       const file = e.target.files[0];
       const blob = window.URL.createObjectURL(file);
 

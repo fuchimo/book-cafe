@@ -55,7 +55,7 @@
       <% @books.each do |book| %>
         <div class="card col-xs-12 col-lg-3">
           <%= image_tag book.image, class: "card-img-top" %>
-          <p class="card__user">レビュアー：<%= book.user.nickname %></p>
+          <p class="card__user">レビュアー：<%= book.user.nickname %>さん</p>
           <div class="card-body">
             <p class="card__title">タイトル：</p>
             <p class="card-text"><%= book.title %></p>
@@ -65,8 +65,9 @@
             <p class="card-text"><%= book.publisher %></p>
             <p class="card__title">カテゴリー：</p>
             <p class="card-text"><%= book.category.name %></p>
-            <%= link_to '詳細', "", class: "btn btn-secondary card_btn" %>
+            <%= link_to '詳細', book_path(book.id), class: "btn btn-secondary card_btn" %>
           </div>
+        </div>
       <% end %>
     </div>
   </div>
