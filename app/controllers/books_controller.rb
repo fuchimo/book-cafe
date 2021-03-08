@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.includes(:user)
+    @comments = Comment.all
   end
 
   def new
@@ -42,6 +43,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @comment = Comment.new
+    @comments = @book.comments.includes(:user)
   end
 
   private

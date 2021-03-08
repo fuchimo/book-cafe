@@ -1,0 +1,45 @@
+<div class="comment__count"><%= comments.where.not(user_id: @book.user_id).count %>件のコメント</div>
+
+  <% comments.last(2).reverse_each do |comment| %>
+    <% if comment.user.id == @book.user_id %>
+      <div class="comment__wrapper--user">
+        <p class="comment__user">＠<%= comment.user.nickname %></p>
+        <p class="comment__content"><%= comment.comment %></p>
+        <% if user_signed_in? && comment.user_id == current_user.id %>
+          <%= link_to "削除", book_comment_path(comment.book_id, comment.id), method: :delete, remote: true, class: "badge badge-danger comment__delete--btn" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="comment__wrapper--otheruser">
+        <p class="comment__user">＠<%= comment.user.nickname %></p>
+        <p class="comment__content"><%= comment.comment %></p>
+        <% if user_signed_in? && comment.user_id == current_user.id %>
+          <%= link_to "削除", book_comment_path(comment.book_id, comment.id), method: :delete, remote: true, class: "badge badge-danger comment__delete--btn" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">すべてのコメントを見る....</div>
+    
+    <div class="collapse" id="collapseExample">
+      <% comments.reverse_each do |comment| %>
+        <% if comment.user.id == @book.user_id %>
+          <div class="comment__wrapper--user">
+            <p class="comment__user">＠<%= comment.user.nickname %></p>
+            <p class="comment__content"><%= comment.comment %></p>
+            <% if user_signed_in? && comment.user_id == current_user.id %>
+              <%= link_to "削除", book_comment_path(comment.book_id, comment.id), method: :delete, remote: true, class: "badge badge-danger comment__delete--btn" %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="comment__wrapper--otheruser">
+            <p class="comment__user">＠<%= comment.user.nickname %></p>
+            <p class="comment__content"><%= comment.comment %></p>
+            <% if user_signed_in? && comment.user_id == current_user.id %>
+              <%= link_to "削除", book_comment_path(comment.book_id, comment.id), method: :delete, remote: true, class: "badge badge-danger comment__delete--btn" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>

@@ -68,3 +68,45 @@
   margin-bottom: 40px;
   text-align: center;
 }
+
+/* ここからコメントエリア */
+
+.comment__text--area {
+  height: 40px;
+  padding: 10px 0 0 5px;
+  margin-top: 3px;
+}
+.comment__text--btn {
+  margin-bottom: 10px;
+}
+
+.comment__count {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.comment__wrapper--user {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.comment__wrapper--otheruser {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.comment__user {
+  padding-right: 10px;
+}
+
+.comment__content {
+  padding-right: 10px;
+}
+
+.comment__caution {
+  margin: 10px 0;
+  color: red;
+  font-weight: bold;
+}

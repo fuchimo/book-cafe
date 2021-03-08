@@ -55,7 +55,8 @@
       <% @books.each do |book| %>
         <div class="card col-xs-12 col-lg-3">
           <%= image_tag book.image, class: "card-img-top" %>
-          <p class="card__user">レビュアー：<%= book.user.nickname %>さん</p>
+          <p class="card__user">投稿者：<%= book.user.nickname %>さん</p>
+          <p>コメント数：<%= @comments.where(book_id: book.id).where.not(user_id: book.user_id).count %></p>
           <div class="card-body">
             <p class="card__title">タイトル：</p>
             <p class="card-text"><%= book.title %></p>
