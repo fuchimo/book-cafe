@@ -4,7 +4,7 @@
   <div class="row main__title">
     <div class="card col-xs-12 col-lg-8 book__main__title">
       <h1>本の詳細</h1>
-      <div class="card__user">レビュアー：<%= @book.user.nickname %>さん</div>
+      <div class="card__user">投稿者：<%= @book.user.nickname %>さん</div>
     </div>
   </div>
     
@@ -31,4 +31,22 @@
         <div class="book-content"><%= @book.review.content %></div>
       </div>
     </div>
+
+    <div class="row book__review--area">
+      <div class="col-xs12 col-lg-8 book__review--wrapper">
+        <h2>コメント一覧</h2>
+        <% if user_signed_in? %>
+          <%= form_with model: [@book, @comment] do |f| %>
+            <%= f.text_area :comment, class: "col-lg-8 comment__text--area" %>
+            <%= f.submit "投稿する", class: "comment__text--btn"%>
+          <% end %>
+        <% else %>
+          <h4 class="comment__caution">コメントの投稿にはログインが必要です</h4>
+        <% end %>
+          <div id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments } %>
+          </div>
+      </div>
+    </div>
+
 </div>

@@ -4,7 +4,10 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
+//= require jquery
+//= require jquery_ujs
 // require("turbolinks").start()
+//= require_tree . 
 require("@rails/activestorage").start()
 require("channels")
 require("../preview")

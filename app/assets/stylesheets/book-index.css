@@ -62,7 +62,7 @@
 .card__user {
   font-size: 18px;
   font-weight: bold;
-  margin-top: 5px;
+  margin: 5px 0 8px 0;
 }
 
 .card__title {
