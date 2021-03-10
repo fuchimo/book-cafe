@@ -1,5 +1,9 @@
+<%# cssはapp/assets/stylesheets/book.cssに記載 %>
+
 <%= render "/shares/header_form" %>
 
+<%# -----サブタイトル部分----- %>
+<%# この部分のcssはapp/assets/stylesheets/book-index.cssに記載 %>
 <div class="container">
   <div class="row main__title">
     <div class="card col-xs-12 col-lg-8 book__main__title">
@@ -7,6 +11,7 @@
     </div>
   </div>
 
+<%# -----本の編集部分----- %>
   <%= form_with model: @book, local: true do |f| %>
   <%= render "shares/error_messages", resource: @book %>
     
@@ -31,7 +36,7 @@
     </div>
     <div class="book__btn">
           <%= f.submit "Update", class: "btn btn-outline-primary"%>
-          <%= link_to 'Cancel', user_path(current_user), class: "btn btn-outline-danger" %>
+          <%= link_to 'Cancel', book_path(@book), class: "btn btn-outline-danger" %>
     </div>
   <% end %>
 </div>

@@ -1,18 +1,32 @@
+<%# cssはapp/assets/stylesheets/book.cssに記載 %>
+
 <%= render "/shares/header_form" %>
 
+<%# -----サブタイトル部分----- %>
+<%# この部分のcssはapp/assets/stylesheets/book-index.cssに記載 %>
 <div class="container">
   <div class="row main__title">
     <div class="card col-xs-12 col-lg-8 book__main__title">
       <h1>本の詳細</h1>
       <div class="card__user">投稿者：<%= @book.user.nickname %>さん</div>
+      <div class="favorite__book" id="favorite_<%= @book.id %>">
+        <%= render partial: 'favorites/favorite', locals: { book: @book } %>
+      </div>
+        <% if current_user.id == @book.user_id %>
+          <ul class="book__edit--lists">
+            <li class="book__edit--list"><%= link_to '本詳細編集', edit_book_path(@book), class: "btn btn-outline-primary" %></li>
+            <li class="book__edit--list"><%= link_to 'レビュー編集', edit_book_review_path(@review), class: "btn btn-outline-primary"  %></li>
+            <li class="book__edit--list"><%= link_to '削除', book_path(@book), method: :delete, class: "btn btn-outline-danger " %></li>
+          </ul>
+        <% end %>
     </div>
   </div>
     
+<%# -----本の詳細部分----- %>
     <div class="row book__content--area">
       <div class="card col-xs-12 col-lg-4 book__image--wrapper" id="preview-image">
         <%= image_tag @book.image, id:"image-now", class:"card-img-top" %>
       </div>
-      
       <div class="col-xs12 col-lg-4 book__details">
         <h2>タイトル</h2>
         <div class="book-content"><%= @book.title %></div>
@@ -25,13 +39,15 @@
       </div>
     </div>
 
+<%# -----本の詳細レビュー部分----- %>
     <div class="row book__review--area">
       <div class="col-xs12 col-lg-8 book__review--wrapper">
         <h2>レビュー</h2>
-        <div class="book-content"><%= @book.review.content %></div>
+        <div class="review-content"><%= @book.review.content %></div>
       </div>
     </div>
 
+<%# -----本の詳細コメント部分----- %>
     <div class="row book__review--area">
       <div class="col-xs12 col-lg-8 book__review--wrapper">
         <h2>コメント一覧</h2>
