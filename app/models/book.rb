@@ -18,4 +18,11 @@ class Book < ApplicationRecord
 
   validates :category_id, numericality: { only_integer: true, message: 'is Unselected' }
 
+  def self.search(search)
+    if search != ""
+      Book.where(['title LIKE ? OR author LIKE ?', "%#{search}%", "%#{search}%"])
+    else
+      Book.all
+    end
+  end
 end

@@ -56,6 +56,23 @@
   line-height: 40px;
 }
 
+/* -----検索フォーム部分----- */
+.search-form {
+  display: flex;
+}
+
+.search-btn {
+  margin-left: 10px;
+}
+
+.category--list {
+  display: block;
+  color: black;
+}
+
+
+
+
 /* -----レビュー一覧部分----- */
 .card {
   padding-top: 20px 10px 10px 0;
@@ -112,53 +129,6 @@
   list-style: none;
   padding: 10px 0 10px 8px;
 }
-
-
-
-
-
-
-
-
-
-/* .main__area {
-  text-align: center;
-}
-
-.main__area--book-buy {
-}
-
-.main__area--content-top {
-  margin: 2vh 0;
-  color: black;
-}
-
-.main__area--content-top h3{
-  font-weight: bold;
-}
-
-.main__area--content-top a:hover{
-  color: #808080;
-}
-
-.main__area--content-image {
-}
-
-.main__area--content-under {
-  margin: 3vh 0;
-  color: black;
-}
-
-.link__set {
-  color: black;
-}
-
-.main__area hr {
-  width: 200px;
-  margin: 0 auto;
-  padding-bottom: 20px;
-} */
-
 
 
 .footer_wrapper {
