@@ -3,6 +3,8 @@ class Book < ApplicationRecord
   has_one_attached :image
   has_one :review, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

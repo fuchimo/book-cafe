@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :addresses, only: [:edit, :update]
   resources :books do
     resources :comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
   end
   resources :reviews, only: [:edit, :update]
   

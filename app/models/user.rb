@@ -9,5 +9,7 @@ class User < ApplicationRecord
   has_many :books
   has_one :address
   has_many :comments
+  has_many :favorites
+  has_many :fav_books, through: :favorites, source: :book
   
 end

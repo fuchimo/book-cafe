@@ -1,7 +1,10 @@
+
+
 .devise__form {
   margin-bottom: 50px;
 }
 
+/* -----サブタイトル部分----- */
 .form__header {
   padding: 20px 0;
 }
@@ -12,8 +15,7 @@
   color: #1e90ff;
 }
 
-
-
+/* -----ユーザー情報・住所登録/編集部分----- */
 .form__area {
   justify-content: center;
 }
@@ -51,11 +53,4 @@
 
 .form__btn {
   text-align: center;
-}
-
-.login-error {
-  text-align: center;
-  padding-bottom: 5px;
-  font-size: 18px;
-  color: red;
 }

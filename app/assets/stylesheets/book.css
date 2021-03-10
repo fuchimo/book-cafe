@@ -1,17 +1,11 @@
-
-.main__title {
-  height: 80px;
-  margin: 20px 0;
+/* -----本の詳細・新規登録 ボタン部分----- */
+.book__btn {
+  margin-top: 5px;
+  margin-bottom: 40px;
   text-align: center;
-  justify-content: center;
 }
 
-.book__main__title h1{
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 40px;
-}
-
+/* -----本の詳細・新規登録部分----- */
 .book__content--area {
   justify-content: center;
   margin-top: 20px;
@@ -43,6 +37,7 @@
 
 
 
+/* -----本の新規登録・詳細レビュー部分----- */
 .book__review--area {
   justify-content: center;
 }
@@ -63,19 +58,18 @@
   padding: 10px;
 }
 
-.book__btn {
-  margin-top: 5px;
-  margin-bottom: 40px;
-  text-align: center;
+.review-content {
+  width: 300px;
+  margin: 10px 0;
 }
 
-/* ここからコメントエリア */
-
+/* -----本の詳細コメント部分----- */
 .comment__text--area {
   height: 40px;
   padding: 10px 0 0 5px;
   margin-top: 3px;
 }
+
 .comment__text--btn {
   margin-bottom: 10px;
 }
@@ -91,7 +85,7 @@
   padding: 20px;
 }
 
-.comment__wrapper--otheruser {
+.comment__wrapper--other-user {
   display: flex;
   justify-content: flex-start;
   padding: 20px;

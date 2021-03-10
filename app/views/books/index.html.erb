@@ -1,9 +1,11 @@
+<%# cssはapp/assets/stylesheets/book-index.cssに記載 %>
 
 <%= render "/shares/header_form" %>
 
 <main>
   <div class="container">
 
+<%# -----メイン画像部分----- %>
     <div class="row main__image">
       <div class="col-12 main__container--image">
         <div class="main__container--text">
@@ -13,6 +15,7 @@
       </div>
     </div>
 
+<%# -----レビュー投稿部分----- %>
     <% if user_signed_in? %>
       <div class="row main__btn">
         <div class="card col-xs-12 col-lg-6 book__main__btn">
@@ -21,6 +24,7 @@
       </div>
     <% end %>
 
+<%# -----サブタイトル部分(new,edit,showでも使用)----- %>
     <div class="row main__title">
       <div class="card col-xs-12 col-lg-8 book__main__title">
         <h1>読書家たちのレビュー 一覧</h1>
@@ -28,6 +32,7 @@
       </div>
     </div>
 
+<%# -----検索フォーム部分----- %>
     <div class="row main__nav">
       <p class="search__text">カテゴリーから検索する</p>
       <div class="dropdown">
@@ -44,7 +49,7 @@
       </div>
     </div>
 
-    
+<%# -----レビュー一覧部分----- %>
     <div class="row main__area">
       <% if @books.blank? %>
         <div class="card col-xs-12 col-lg-8">
@@ -72,7 +77,6 @@
       <% end %>
     </div>
   </div>
-
 </main>
 
 <%= render "/shares/footer_form" %>

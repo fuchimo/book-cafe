@@ -1,4 +1,5 @@
 
+/* -----メイン画像部分----- */
 .main__container--image {
   height: 400px;
   margin: 20px 0;
@@ -27,6 +28,7 @@
   text-shadow: 1px 2px 3px black;
 }
 
+/* -----レビュー投稿部分----- */
 .main__btn {
   justify-content: center;
 }
@@ -36,12 +38,26 @@
   line-height: 35px;
 }
 
-
+/* -----サブタイトル部分(new,edit,showでも使用)----- */
 .main__area {
   display: flex;
   justify-content: center;
 }
 
+.main__title {
+  height: 80px;
+  margin: 20px 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.book__main__title h1{
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+/* -----レビュー一覧部分----- */
 .card {
   padding-top: 20px 10px 10px 0;
   margin: 20px 0;
