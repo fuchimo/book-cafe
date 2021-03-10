@@ -1,0 +1,42 @@
+
+<%= render "/shares/header_form" %>
+
+<div class="container">
+  <div class="row main__title">
+    <div class="card col-xs-12 col-lg-8 book__main__title">
+      <h1><%= @category.name %>の検索結果 一覧</h1>
+      <hr class="border">
+    </div>
+  </div>
+
+  <div class="row main__nav justify-content-center">
+    <%= link_to '戻る', root_path, class: "btn btn-outline-info" %>
+  </div>
+
+  <div class="row main__area">
+    <% if @books.blank? %>
+      <div class="card col-xs-12 col-lg-8">
+        <p class="card__none">検索結果はありません</p>
+      </div>
+    <% end %>
+
+    <% @books.each do |book| %>
+      <div class="card col-xs-12 col-lg-3">
+        <%= image_tag book.image, class: "card-img-top" %>
+        <p class="card__user">投稿者：<%= book.user.nickname %>さん</p>
+        <p>コメント数：<%= @comments.where(book_id: book.id).where.not(user_id: book.user_id).count %></p>
+        <div class="card-body">
+          <p class="card__title">タイトル：</p>
+          <p class="card-text"><%= book.title %></p>
+          <p class="card__title">著者：</p>
+          <p class="card-text"><%= book.author %></p>
+          <p class="card__title">出版社：</p>
+          <p class="card-text"><%= book.publisher %></p>
+          <p class="card__title">カテゴリー：</p>
+          <p class="card-text"><%= book.category.name %></p>
+          <%= link_to '詳細', book_path(book.id), class: "btn btn-secondary card_btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

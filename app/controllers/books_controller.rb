@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :move_to_signup, except: [:index, :show]
+  before_action :move_to_signup, except: [:index, :show, :search, :category_search]
   before_action :set_params, only: [:show, :edit, :update, :destroy]
   before_action :different_user_redirect, only: [:edit, :update, :destroy]
 
@@ -45,6 +45,17 @@ class BooksController < ApplicationController
     @review = @book.review.id
     @comment = Comment.new
     @comments = @book.comments.includes(:user)
+  end
+
+  def search
+    @books = Book.search(params[:keyword])
+    @comments = Comment.all
+  end
+
+  def category_search
+    @books = Book.where(category_id: params[:category_id])
+    @category = Category.find(params[:category_id])
+    @comments = Comment.all
   end
 
   private

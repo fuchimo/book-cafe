@@ -91,19 +91,20 @@
   font-weight: bold;
 }
 
-.comment__wrapper--user {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-}
-
-.comment__wrapper--other-user {
+.comment__wrapper {
   display: flex;
   justify-content: flex-start;
   padding: 20px;
 }
 
 .comment__user {
+  color: #00bfff;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.comment__other-user {
+  font-weight: bold;
   padding-right: 10px;
 }
 

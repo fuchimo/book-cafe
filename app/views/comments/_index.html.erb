@@ -4,7 +4,7 @@
 
 <% comments.last(2).reverse_each do |comment| %>
   <% if comment.user.id == @book.user_id %>
-    <div class="comment__wrapper--user">
+    <div class="comment__wrapper">
       <p class="comment__user">＠<%= comment.user.nickname %></p>
       <p class="comment__content"><%= comment.comment %></p>
       <% if user_signed_in? && comment.user_id == current_user.id %>
@@ -12,8 +12,8 @@
       <% end %>
     </div>
   <% else %>
-    <div class="comment__wrapper--other-user">
-      <p class="comment__user">＠<%= comment.user.nickname %></p>
+    <div class="comment__wrapper">
+      <p class="comment__other-user">＠<%= comment.user.nickname %></p>
       <p class="comment__content"><%= comment.comment %></p>
       <% if user_signed_in? && comment.user_id == current_user.id %>
         <%= link_to "削除", book_comment_path(comment.book_id, comment.id), method: :delete, remote: true, class: "badge badge-danger comment__delete--btn" %>
@@ -29,7 +29,7 @@
 <div class="collapse" id="collapseExample">
   <% comments.reverse_each do |comment| %>
     <% if comment.user.id == @book.user_id %>
-      <div class="comment__wrapper--user">
+      <div class="comment__wrapper">
         <p class="comment__user">＠<%= comment.user.nickname %></p>
         <p class="comment__content"><%= comment.comment %></p>
         <% if user_signed_in? && comment.user_id == current_user.id %>
@@ -37,8 +37,8 @@
         <% end %>
       </div>
     <% else %>
-      <div class="comment__wrapper--other-user">
-        <p class="comment__user">＠<%= comment.user.nickname %></p>
+      <div class="comment__wrapper">
+        <p class="comment__other-user">＠<%= comment.user.nickname %></p>
         <p class="comment__content"><%= comment.comment %></p>
         <% if user_signed_in? && comment.user_id == current_user.id %>
           <%= link_to "削除", book_comment_path(comment.book_id, comment.id), method: :delete, remote: true, class: "badge badge-danger comment__delete--btn" %>
