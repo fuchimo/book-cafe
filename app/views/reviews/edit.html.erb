@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <%= form_with model: @review, local: true do |f| %>
+  <%= form_with model: [@book, @review], local: true do |f| %>
   <%= render "shares/error_messages", resource: @review %>
     
     <div class="row book__review--area">
@@ -19,7 +19,7 @@
     
     <div class="book__btn">
           <%= f.submit "Update", class: "btn btn-outline-primary"%>
-          <%= link_to 'Cancel', user_path(current_user), class: "btn btn-outline-danger" %>
+          <%= link_to 'Cancel', book_path(@book), class: "btn btn-outline-danger" %>
     </div>
   <% end %>
 </div>

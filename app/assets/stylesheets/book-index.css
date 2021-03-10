@@ -45,8 +45,7 @@
 }
 
 .main__title {
-  height: 80px;
-  margin: 20px 0;
+  margin: 20px 0 0 0;
   text-align: center;
   justify-content: center;
 }

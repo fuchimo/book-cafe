@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :set_params
 
   def create
-    @book = Book.find(params[:book_id])
     @comment = @book.comments.build(comment_params)
     @comment.save
     render :index
@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    @book = Book.find(params[:book_id])
     render :index
   end
 
@@ -19,4 +18,9 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment).merge(user_id: current_user.id, book_id: params[:book_id])
   end
+
+  def set_params
+    @book = Book.find(params[:book_id])
+  end
+
 end

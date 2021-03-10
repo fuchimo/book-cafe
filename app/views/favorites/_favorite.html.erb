@@ -1,5 +1,7 @@
-<% if !Favorite.exists?(user_id: current_user.id, book_id: book.id) %>
-  <%= link_to 'お気に入りに登録', book_favorites_path(book.id), method: :post, remote: true %>
-<% else %>
-  <%= link_to "お気に入りを解除", book_favorite_path(book_id: book.id, id: book.favorites[0].id), method: :delete, remote: true %>
+<% if user_signed_in? && current_user.id != @book.user_id%>
+  <% if !Favorite.exists?(user_id: current_user.id, book_id: book.id) %>
+    <%= link_to 'お気に入りに登録', book_favorites_path(book.id), method: :post, remote: true, class: "btn btn-outline-success fav-btn" %>
+  <% else %>
+    <%= link_to "お気に入りを解除", book_favorite_path(book_id: book.id, id: book.favorites[0].id), method: :delete, remote: true, class: "btn btn-outline-danger fav-btn"  %>
+  <% end %>
 <% end %>

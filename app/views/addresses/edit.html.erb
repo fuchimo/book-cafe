@@ -12,7 +12,7 @@
   </div>
 
 <%# -----住所情報編集部分----- %>
-  <%= form_with model: @address, class: "registration__main", local: true do |f| %>
+  <%= form_with model: [@user, @address], url: user_address_path, class: "registration__main", local: true do |f| %>
   <%= render "shares/error_messages", resource: @address %>
 
     <div class="row form__area ">

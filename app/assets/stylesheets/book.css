@@ -5,10 +5,22 @@
   text-align: center;
 }
 
+/* -----本の詳細nav部分----- */
+.book__edit--lists {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.book__edit--list {
+  margin: 0 5px;
+}
+
+
 /* -----本の詳細・新規登録部分----- */
 .book__content--area {
   justify-content: center;
-  margin-top: 20px;
 }
 
 .book__image--wrapper {
@@ -104,3 +116,6 @@
   color: red;
   font-weight: bold;
 }
+ .fav-btn {
+   margin-top: 10px;
+ }

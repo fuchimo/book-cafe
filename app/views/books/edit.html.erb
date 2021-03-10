@@ -36,7 +36,7 @@
     </div>
     <div class="book__btn">
           <%= f.submit "Update", class: "btn btn-outline-primary"%>
-          <%= link_to 'Cancel', user_path(current_user), class: "btn btn-outline-danger" %>
+          <%= link_to 'Cancel', book_path(@book), class: "btn btn-outline-danger" %>
     </div>
   <% end %>
 </div>

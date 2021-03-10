@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  before_action :move_to_signup, except: [:index, :show]
+  before_action :set_params, only: [:show, :edit, :update, :destroy]
+  before_action :different_user_redirect, only: [:edit, :update, :destroy]
 
   def index
     @books = Book.includes(:user)
@@ -20,29 +23,26 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(update_params)
-      redirect_to user_path(current_user)
+      redirect_to book_path(@book)
     else
       render :edit
     end
   end
 
   def destroy
-    @book = Book.find(params[:id])
     if @book.destroy
-      redirect_to user_path(current_user)
+      redirect_to book_path(@book)
     else
       render :edit
     end
   end
 
   def show
-    @book = Book.find(params[:id])
+    @review = @book.review.id
     @comment = Comment.new
     @comments = @book.comments.includes(:user)
   end
@@ -55,6 +55,18 @@ class BooksController < ApplicationController
 
   def update_params
     params.require(:book).permit(:title, :author, :publisher, :category_id, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_signup
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def set_params
+    @book = Book.find(params[:id])
+  end
+
+  def different_user_redirect
+    redirect_to root_path if current_user.id != @book.user_id
   end
 
 end

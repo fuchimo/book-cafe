@@ -13,8 +13,10 @@
 
 <%# -----ユーザー情報編集リンク部分----- %>
   <div class="row user__show--nav">
-    <%= link_to '基本情報変更', edit_user_registration_path, class: "btn btn-outline-primary user-btn" %>
-    <%= link_to '登録住所変更', edit_address_path(current_user.id), class: "btn btn-outline-primary user-btn" %>
+    <% if current_user.id == @user.id %>
+      <%= link_to '基本情報変更', edit_user_registration_path, class: "btn btn-outline-primary user-btn" %>
+      <%= link_to '登録住所変更', edit_user_address_path(@address), class: "btn btn-outline-primary user-btn" %>
+    <% end %>
   </div>
 
 <%# -----サブタイトル部分----- %>
@@ -39,15 +41,20 @@
         </div>
         <div class="col-4 user__show--book--content">
           <h5 class="mt-0 user__show--book--title">タイトル：<%= book.title %></h5>
-          <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle menu-btn" type="button" data-toggle="dropdown">menu</button>
-            <div class="dropdown-menu " >
-              <%= link_to '本詳細', book_path(book.id), class: "dropdown-item book--content" %>
-              <%= link_to '本詳細編集', edit_book_path(book.id), class: "dropdown-item book--content" %>
-              <%= link_to 'レビュー編集', edit_review_path(book.id), class: "dropdown-item book--content" %>
-              <%= link_to '削除', book_path(book.id), method: :delete, class: "dropdown-item book--content delete" %>
+
+          <% if current_user.id == @user.id %>
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle menu-btn" type="button" data-toggle="dropdown">menu</button>
+              <div class="dropdown-menu " >
+                <%= link_to '本詳細', book_path(book.id), class: "dropdown-item book--content" %>
+                <%= link_to '本詳細編集', edit_book_path(book.id), class: "dropdown-item book--content" %>
+                <%= link_to 'レビュー編集', edit_book_review_path(book.id), class: "dropdown-item book--content" %>
+                <%= link_to '削除', book_path(book.id), method: :delete, class: "dropdown-item book--content delete" %>
+              </div>
             </div>
-          </div>
+          <% else %>
+            <%= link_to '本詳細', book_path(book.id) %>
+          <% end %>
         </div>
       </div>
     <% end %>

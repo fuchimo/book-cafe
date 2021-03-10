@@ -12,6 +12,13 @@
       <div class="favorite__book" id="favorite_<%= @book.id %>">
         <%= render partial: 'favorites/favorite', locals: { book: @book } %>
       </div>
+        <% if current_user.id == @book.user_id %>
+          <ul class="book__edit--lists">
+            <li class="book__edit--list"><%= link_to '本詳細編集', edit_book_path(@book), class: "btn btn-outline-primary" %></li>
+            <li class="book__edit--list"><%= link_to 'レビュー編集', edit_book_review_path(@review), class: "btn btn-outline-primary"  %></li>
+            <li class="book__edit--list"><%= link_to '削除', book_path(@book), method: :delete, class: "btn btn-outline-danger " %></li>
+          </ul>
+        <% end %>
     </div>
   </div>
     
@@ -20,7 +27,6 @@
       <div class="card col-xs-12 col-lg-4 book__image--wrapper" id="preview-image">
         <%= image_tag @book.image, id:"image-now", class:"card-img-top" %>
       </div>
-      
       <div class="col-xs12 col-lg-4 book__details">
         <h2>タイトル</h2>
         <div class="book-content"><%= @book.title %></div>
