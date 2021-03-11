@@ -41,20 +41,7 @@
         </div>
         <div class="col-4 user__show--book--content">
           <h5 class="mt-0 user__show--book--title">タイトル：<%= book.title %></h5>
-
-          <% if current_user.id == @user.id %>
-            <div class="dropdown">
-              <button class="btn btn-info dropdown-toggle menu-btn" type="button" data-toggle="dropdown">menu</button>
-              <div class="dropdown-menu " >
-                <%= link_to '本詳細', book_path(book.id), class: "dropdown-item book--content" %>
-                <%= link_to '本詳細編集', edit_book_path(book.id), class: "dropdown-item book--content" %>
-                <%= link_to 'レビュー編集', edit_book_review_path(book.id), class: "dropdown-item book--content" %>
-                <%= link_to '削除', book_path(book.id), method: :delete, class: "dropdown-item book--content delete" %>
-              </div>
-            </div>
-          <% else %>
-            <%= link_to '本詳細', book_path(book.id) %>
-          <% end %>
+          <h4><%= link_to '本詳細', book_path(book.id), class: "badge badge-info" %></h4>
         </div>
       </div>
     <% end %>
@@ -82,10 +69,12 @@
         </div>
         <div class="col-4 user__show--book--content">
           <h5 class="mt-0 user__show--book--title">タイトル：<%= favorite.title %></h5>
-          <%= link_to '本詳細', book_path(favorite.id) %>
+          <%= link_to '本詳細', book_path(favorite.id), class: "badge badge-info"  %>
         </div>
             
       </div>
     <% end %>
   </div>
 </div>
+
+<%= render "/shares/footer_form" %>

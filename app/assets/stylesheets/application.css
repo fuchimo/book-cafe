@@ -31,3 +31,28 @@ hr {
   background-color: #696969;
 }
 
+.pagination {
+  justify-content: center;
+  margin-bottom: 20px;
+} 
+
+.pagination li a{
+  border: none;
+  color: #696969;
+  margin: 0 2px 0 2px;
+}
+
+.pagination .active .page-link {
+  border-radius: 25px;
+  background: #3cb371;
+}
+
+.pagination .active a:hover {
+  color: white;
+  border-radius: 25px;
+  background-color: #66cdaa;
+}
+
+.pagination a:hover {
+  border-radius: 25px;
+}
