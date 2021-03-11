@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :different_user_redirect, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.includes(:user)
+    @books = Book.includes(:user).page(params[:page]).per(4)
     @comments = Comment.all
   end
 
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
 
   def destroy
     if @book.destroy
-      redirect_to book_path(@book)
+      redirect_to user_path(current_user)
     else
       render :edit
     end
