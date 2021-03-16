@@ -2,7 +2,7 @@
 .main__container--image {
   height: 400px;
   margin: 20px 0;
-  background-image: url(<%= asset_path 'sample-cafe2.png' %>);
+  background-image: image-url('sample-cafe2.png');
   background-size: cover;
   background-position: center bottom;
   position: relative;
