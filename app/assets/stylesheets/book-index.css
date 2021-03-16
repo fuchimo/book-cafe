@@ -1,14 +1,6 @@
 
 /* -----メイン画像部分----- */
-.main__container--image {
-  height: 400px;
-  margin: 20px 0;
-  background-image: url("sample-cafe2.png");
-  background-size: cover;
-  background-position: center bottom;
-  position: relative;
-  filter: opacity(70%);
-}
+
 
 .main__container--text {
   position: absolute;
