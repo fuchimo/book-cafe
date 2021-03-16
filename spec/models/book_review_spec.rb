@@ -50,17 +50,11 @@ RSpec.describe BookReview, type: :model do
       @book_review.valid? 
       expect(@book_review.errors.full_messages).to include "Content can't be blank"
     end
-  end
 
-  it 'user_idが空だと登録ができない' do
-    @book_review.user_id = ''
-    @book_review.valid?
-    expect(@book_review.errors.full_messages).to include "User can't be blank"
-  end
-
-  it 'book_idが空だと登録ができない' do
-    @book_review.book_id = ''
-    @book_review.valid?
-    expect(@book_review.errors.full_messages).to include "Book can't be blank"
+    it 'user_idが空だと登録ができない' do
+      @book_review.user_id = ''
+      @book_review.valid?
+      expect(@book_review.errors.full_messages).to include "User can't be blank"
+    end
   end
 end

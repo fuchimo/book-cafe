@@ -9,7 +9,6 @@ class BookReview
     validates :image
     validates :content
     validates :user_id
-    validates :book_id
   end
 
   validates :category_id, numericality: { only_integer: true, message: 'is Unselected' }
