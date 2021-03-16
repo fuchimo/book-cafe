@@ -55,6 +55,7 @@
 }
 
 .book__review--wrapper {
+  width: 100%;
   margin: 20px 0;
 }
 
@@ -71,7 +72,6 @@
 }
 
 .review-content {
-  width: 300px;
   margin: 10px 0;
 }
 
