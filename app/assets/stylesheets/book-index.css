@@ -7,17 +7,25 @@
   top: 6vh;
   left: 4vw;
   color: whitesmoke;
+  text-shadow: 1px 2px 3px black;
 }
 
 .main__container--text h2{
   font-size: 2.5vw;
   margin-bottom: 1vh;
-  text-shadow: 1px 2px 3px black;
 }
 
 .main__container--text p{
   font-size: 2vw;
-  text-shadow: 1px 2px 3px black;
+}
+
+.main__container--text h3{
+  font-size: 2vw;
+}
+
+.main__container--name {
+  color: #66cdaa;
+  font-size: 2.5vw;
 }
 
 /* -----レビュー投稿部分----- */
@@ -120,6 +128,14 @@
   font-size: 14px;
   list-style: none;
   padding: 10px 0 10px 8px;
+}
+
+.set__link {
+  color: #008000;
+}
+
+.set__link:hover {
+  color: #66cdaa;
 }
 
 

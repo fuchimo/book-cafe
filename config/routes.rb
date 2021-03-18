@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :books do
     collection do
       get "search"
+      get "title_search"
+      get "author_search"
+      get "publisher_search"
       get "category_search"
     end
     resources :reviews, only: [:edit, :update]

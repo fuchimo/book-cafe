@@ -8,7 +8,7 @@
   <div class="row main__title">
     <div class="card col-xs-12 col-lg-8 book__main__title">
       <h1>本の詳細</h1>
-      <div class="card__user">投稿者：<%= @book.user.nickname %>さん</div>
+      <div class="card__user">投稿者：<%= link_to @book.user.nickname, user_path(@book.user.id), class: "set__link" %> さん</div>
       <div class="favorite__book" id="favorite_<%= @book.id %>">
         <%= render partial: 'favorites/favorite', locals: { book: @book } %>
       </div>
@@ -29,13 +29,21 @@
       </div>
       <div class="col-xs12 col-lg-4 book__details">
         <h2>タイトル</h2>
-        <div class="book-content"><%= @book.title %></div>
+        <div class="book-content">
+          <%= link_to @book.title, title_search_books_path(title: @book.title), class: "set__link" %>
+        </div>
         <h2>著者</h2>
-        <div class="book-content"><%= @book.author %></div>
+        <div class="book-content">
+          <%= link_to @book.author, author_search_books_path(author: @book.author), class: "set__link" %>
+        </div>
         <h2>出版社</h2>
-        <div class="book-content"><%= @book.publisher %></div>
+        <div class="book-content">
+          <%= link_to @book.publisher, publisher_search_books_path(publisher: @book.publisher), class: "set__link" %>
+        </div>
         <h2>カテゴリー</h2>
-        <div class="book-content"><%= @book.category.name %></div>
+        <div class="book-content">
+          <%= link_to @book.category.name, category_search_books_path(category_id: @book.category.id), class: "set__link" %>
+        </div>
       </div>
     </div>
 

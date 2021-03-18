@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row main__title">
     <div class="card col-xs-12 col-lg-8 book__main__title">
-      <h1>検索結果 一覧</h1>
+      <h1>出版社：<%= @book.publisher %>の検索結果 一覧</h1>
       <hr class="border">
     </div>
   </div>
@@ -24,3 +24,5 @@
     
   </div>
 </div>
+
+<%= render "/shares/footer_form" %>

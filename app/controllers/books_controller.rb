@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
-  before_action :move_to_signup, except: [:index, :show, :search, :category_search]
+  before_action :move_to_signup, except: [:index, :show, :search, :title_search, :author_search,
+                                          :publisher_search, :category_search]
   before_action :set_params, only: [:show, :edit, :update, :destroy]
   before_action :different_user_redirect, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.includes(:user).page(params[:page]).per(4)
+    @books = Book.includes(:user).order("created_at DESC").page(params[:page]).per(8)
     @comments = Comment.all
   end
 
@@ -48,12 +49,30 @@ class BooksController < ApplicationController
   end
 
   def search
-    @books = Book.search(params[:keyword])
+    @books = Book.search(params[:keyword]).order("created_at DESC")
+    @comments = Comment.all
+  end
+
+  def title_search
+    @books = Book.includes(:user).where(title: params[:title]).order("created_at DESC")
+    @book = Book.find_by(title: params[:title])
+    @comments = Comment.all
+  end
+
+  def author_search
+    @books = Book.includes(:user).where(author: params[:author]).order("created_at DESC")
+    @book = Book.find_by(author: params[:author])
+    @comments = Comment.all
+  end
+
+  def publisher_search
+    @books = Book.includes(:user).where(publisher: params[:publisher]).order("created_at DESC")
+    @book = Book.find_by(publisher: params[:publisher])
     @comments = Comment.all
   end
 
   def category_search
-    @books = Book.where(category_id: params[:category_id])
+    @books = Book.includes(:user).where(category_id: params[:category_id]).order("created_at DESC")
     @category = Category.find(params[:category_id])
     @comments = Comment.all
   end

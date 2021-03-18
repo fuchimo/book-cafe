@@ -1,0 +1,26 @@
+<% @books.each do |book| %>
+  <div class="card col-xs-12 col-lg-3">
+    <%= image_tag book.image, class: "card-img-top" %>
+    <div class="card__user">投稿者：<%= link_to book.user.nickname, user_path(book.user.id), class: "set__link" %> さん</div>
+    <p>コメント数：<%= @comments.where(book_id: book.id).where.not(user_id: book.user_id).count %></p>
+    <div class="card-body">
+      <p class="card__title">タイトル：</p>
+      <div class="card-text">
+        <%= link_to book.title, title_search_books_path(title: book.title), class: "set__link" %>
+      </div>
+      <p class="card__title">著者：</p>
+      <div class="card-text">
+        <%= link_to book.author, author_search_books_path(author: book.author), class: "set__link" %>
+      </div>
+      <p class="card__title">出版社：</p>
+      <div class="card-text">
+        <%= link_to book.publisher, publisher_search_books_path(publisher: book.publisher), class: "set__link" %>
+      </div>
+      <p class="card__title">カテゴリー：</p>
+      <div class="card-text">
+        <%= link_to book.category.name, category_search_books_path(category_id: book.category.id), class: "set__link" %>
+      </div>
+        <%= link_to '詳細', book_path(book.id), class: "btn btn-outline-info card_btn" %>
+    </div>
+  </div>
+<% end %>

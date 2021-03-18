@@ -11,6 +11,13 @@
         <div class="main__container--text">
         <h2>読書家たちのコミュニケーションスペース</h2>
         <p>いろいろな本や人と出会おう</p>
+        <br>
+        <br>
+        <% if user_signed_in? %>
+          <h3>おかえりなさい <span class="main__container--name"><%= current_user.nickname %></span> さん</h3>
+        <% else %>
+          <h3>ようこそBookCafeへ</h3>
+        <% end %>
         </div>
       </div>
     </div>
@@ -64,24 +71,8 @@
         </div>
       <% end %>
 
-      <% @books.each do |book| %>
-        <div class="card col-xs-12 col-lg-3">
-          <%= image_tag book.image, class: "card-img-top" %>
-          <p class="card__user">投稿者：<%= book.user.nickname %>さん</p>
-          <p>コメント数：<%= @comments.where(book_id: book.id).where.not(user_id: book.user_id).count %></p>
-          <div class="card-body">
-            <p class="card__title">タイトル：</p>
-            <p class="card-text"><%= book.title %></p>
-            <p class="card__title">著者：</p>
-            <p class="card-text"><%= book.author %></p>
-            <p class="card__title">出版社：</p>
-            <p class="card-text"><%= book.publisher %></p>
-            <p class="card__title">カテゴリー：</p>
-            <p class="card-text"><%= book.category.name %></p>
-            <%= link_to '詳細', book_path(book.id), class: "btn btn-outline-info card_btn" %>
-          </div>
-        </div>
-      <% end %>
+      <%= render "book_index_form" %>
+
     </div>
     <%= paginate @books %>
   </div>
