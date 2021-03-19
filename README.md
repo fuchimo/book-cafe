@@ -1,24 +1,143 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリ名
+## BookCafe
 
-Things you may want to cover:
+# 概要
 
-* Ruby version
+ユーザー登録を行うことで、自分が読んだ本のレビューを投稿することができます。
+また、他の人が投稿したレビューも見ることができ、コメントを残すこともできます。
+(見るだけならばはログインは不要ですが、コメントを残す場合はユーザー登録が必要です)
+他の人の読んだ本に興味があったり、レビューに共感をした場合はお気に入りに登録することも可能です。
+自分が投稿した本やお気に入りに登録した本はマイページからいつでも確認可能です。
 
-* System dependencies
+自分が読んでみたい、もしくはどんな本なのか知りたい場合は検索機能を使って調べることもできます。
 
-* Configuration
+# 本番環境
+http://35.73.135.101
 
-* Database creation
+ID：fuchimo
+Pass：1988
 
-* Database initialization
+# 制作意図
 
-* How to run the test suite
+私自身の趣味が読書ということもあり、もっと本好きな人たちと繋がりたいと思いました。
+本を読んで感じることは、読んだ人それぞれであり「自分はこの物語からこんなことを感じたけど、他の人はどう感じたんだろう？」と思っていたこともあり、今回、簡単に読んだ本のレビューを共有できるアプリを作成いたしました。
+また、自分が知りたい本の情報がすぐに手に入りやすいようにできるだけ検索機能を充実させました。
 
-* Services (job queues, cache servers, search engines, etc.)
+# 工夫したポイント
+ユーザーがいろいろなレビューを探しやすいように検索機能をタイトルと著者から検索できるようにしました。
+またカテゴリー別でも検索を行うことができます。
+それぞれにリンクを作成し、出版社別でも一覧表示できるようにしています。
+お気に入り機能を実装してマイページで一覧表示できるようにすることでお気に入りした本にすぐにアクセスできるようにしています。
 
-* Deployment instructions
+# アプリ機能
+ログイン/ログアウト機能
+レビュー投稿機能
+コメント投稿機能
+お気に入り登録機能
+検索機能
 
-* ...
+
+# 開発環境
+・Ruby
+・Ruby on Rails 
+・JavaScript
+・jQuery
+・Bootstrap
+・Visual Studio Code
+・AWS（EC2 / E3）
+
+# 今後の課題
+「本好きな人たちと繋がる」という観点から、もっとレビュー者同士のコミュニケーションが活発にできるような仕組みの実装が必要だと考えています。
+また、登録した住所をもとに、近くの本屋さんやBookCafeの一覧表示ができたら便利かなとも考えています。
+
+
+# テーブル設計
+
+## users テーブル
+
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| birth_date         | date   | null: false               |
+
+### Association
+
+- has_many :books
+- has_one :address
+- has_many :comments
+- has_many :favorites
+- has_many :fav_books, through: :favorites, source: :book
+
+## addresses テーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| postal_code     | string     | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| city            | string     | null: false                    |
+| house_number    | string     | null: false                    |
+| building_number | string     |                                |
+| user            | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user, optional: true
+
+## books テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| title       | string     | null: false                    |
+| author      | string     | null: false                    |
+| publisher   | string     | null: false                    |
+| category_id | integer    | null: false                    |
+| user        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_one_attached :image
+- has_one :review, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :favorites, dependent: :destroy
+- has_many :users, through: :favorites
+
+## reviews テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | text       | null: false                    |
+| book    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :book
+
+## favorites テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| book    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :book
+
+## comments テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| comment | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| book    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :book
