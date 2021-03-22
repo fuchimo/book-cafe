@@ -43,10 +43,10 @@ Pass：1988
 ## お気に入り登録機能(非同期通信)  
 ![お気に入り登録](https://user-images.githubusercontent.com/78131798/111947595-296b1f80-8b21-11eb-9d6e-e0d475df68ff.gif)
 
-検索機能①(著者・タイトル検索)  
+## 検索機能①(著者・タイトル検索)  
 ![著者・タイトル検索](https://user-images.githubusercontent.com/78131798/111947657-3f78e000-8b21-11eb-9dd6-4612f382fcd2.gif)
 
-検索機能②(カテゴリー検索)  
+## 検索機能②(カテゴリー検索)  
 ![カテゴリー検索](https://user-images.githubusercontent.com/78131798/111947716-591a2780-8b21-11eb-9526-f35976ffc6f6.gif)  
 
 
