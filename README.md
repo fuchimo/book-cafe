@@ -31,11 +31,21 @@ Pass：1988
 お気に入り機能を実装してマイページで一覧表示できるようにすることでお気に入りした本にすぐにアクセスできるようにしています。
 
 # アプリ機能
-ログイン/ログアウト機能
-レビュー投稿機能
-コメント投稿機能
-お気に入り登録機能
-検索機能
+トップページ（ページネーション機能搭載)  
+![ページネーション機能](https://user-images.githubusercontent.com/78131798/111947271-76022b00-8b20-11eb-8773-1bdf05396927.gif)
+
+レビュー投稿画面にプレビュー機能搭載  
+![プレビュー機能](https://user-images.githubusercontent.com/78131798/111947418-cbd6d300-8b20-11eb-84a7-44955af7dccd.gif)
+
+コメント投稿機能(非同期通信)  
+![コメント投稿](https://user-images.githubusercontent.com/78131798/111947514-fe80cb80-8b20-11eb-8cb9-6c1c14b960fb.gif)
+
+お気に入り登録機能(非同期通信)  
+![お気に入り登録](https://user-images.githubusercontent.com/78131798/111947595-296b1f80-8b21-11eb-9d6e-e0d475df68ff.gif)
+
+検索機能  
+![著者・タイトル検索](https://user-images.githubusercontent.com/78131798/111947657-3f78e000-8b21-11eb-9dd6-4612f382fcd2.gif)  
+![カテゴリー検索](https://user-images.githubusercontent.com/78131798/111947716-591a2780-8b21-11eb-9526-f35976ffc6f6.gif)  
 
 
 # 開発環境
