@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_params
 
   def create
-    @comment = @book.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.save
     render :index
   end
